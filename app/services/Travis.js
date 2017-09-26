@@ -50,11 +50,28 @@ module.exports = function () {
 
             return null;
         },
+        getColor = function(jobstatus){
+            if(jobstatus === 1) return "red";
+            if (jobstatus === 0) return "green";
+            return "grey";
+        },
         simplifyBuild = function (res) {
+            androidStatus = res.matrix[0].result;
+            iosStatus = res.matrix[1].result;
+            if(androidStatus === null)
+                androidStatus = -1;
+            if(iosStatus === null)
+                iosStatus = -1;    
+
             return {
                 id: self.configuration.slug + '|' + res.number,
-                project: self.configuration.slug,
+                //project: self.configuration.slug,
+                project: res.branch,
                 number: res.number,
+                branch: res.branch,
+                androidStatus: androidStatus,
+                iosStatus: iosStatus,
+                commitmessage: res.message,
                 isRunning: res.state === 'started',
                 startedAt: parseDate(res.started_at),
                 finishedAt: parseDate(res.finished_at),

@@ -11,14 +11,19 @@ define(['ko', 'moment', 'countdown'], function (ko, moment, countdown) {
         this.finishedAt = ko.observable();
         this.status = ko.observable(build.status);
         this.statusText = ko.observable();
+        this.branch = ko.observable();
         this.reason = ko.observable();
         this.requestedFor = ko.observable();
         this.hasWarnings = ko.observable();
         this.hasErrors = ko.observable();
         this.url = ko.observable();
+        this.commitmessage= ko.observable();
+        this.androidStatus= ko.observable(-1);
+        this.iosStatus= ko.observable(-1);
 
         this.update = function (build) {
             this.id(build.id);
+            this.branch(build.branch)
             this.isRunning(build.isRunning);
             this.project(build.project);
             this.definition(build.definition);
@@ -32,6 +37,9 @@ define(['ko', 'moment', 'countdown'], function (ko, moment, countdown) {
             this.hasWarnings(build.hasWarnings);
             this.hasErrors(build.hasErrors);
             this.url(build.url);
+            this.commitmessage(build.commitmessage);
+            this.androidStatus(build.androidStatus);
+            this.iosStatus(build.iosStatus);
         };
 
         this.update(build);
@@ -44,7 +52,7 @@ define(['ko', 'moment', 'countdown'], function (ko, moment, countdown) {
                 };
             }
         }, this);
-
+        
         this.time = ko.forcibleComputed(function () {
             return this.isRunning() ?
                 'started ' + moment(this.startedAt()).fromNow() :

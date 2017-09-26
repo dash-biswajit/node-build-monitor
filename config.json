@@ -1,7 +1,7 @@
 {
   "monitor": {
-    "interval": 5000,
-    "numberOfBuilds": 12,
+    "interval": 30000,
+    "numberOfBuilds": 6,
     "latestBuildOnly": false,
     "sortOrder": "date",
     "debug": true
@@ -10,9 +10,15 @@
     {
       "name": "Travis",
       "configuration": {
+        "slug": "node-build-monitor"
+      }
+    },
+    {
+      "name": "Travis",
+      "configuration": {
         "slug": "ConnectedHomes/bg-mobile-nga",
         "url": "travis-ci.com",
-        "token": "djXTqjG20q3LGQ2bPuytcw"
+        "token": "equ2DHpD67Wxgv2WYo23"
       }
     }
   ]

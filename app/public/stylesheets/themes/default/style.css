@@ -106,6 +106,10 @@
   margin-left: 10px;
 }
 
+.default-theme .flex-item .comment {
+  margin-left: 7px;
+}
+
 .default-theme .flex-item .status {
   float: left;
   font-family: 'open_sans_condensedbold';

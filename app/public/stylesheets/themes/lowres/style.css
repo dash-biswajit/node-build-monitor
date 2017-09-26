@@ -15,6 +15,32 @@
   vertical-align: middle;
 }
 
+.lowres .appstatus { 
+  vertical-align: right;
+  background-color: white
+}
+
+.iossuccesscolor { 
+  font-size: 25pt;
+  color: red;
+  padding: 4px;
+  margin: 2px;
+}
+
+.lowres .success { 
+  font-size: 25pt;
+  color: green;
+  padding: 4px;
+  margin: 2px;
+}
+
+.lowres .failed { 
+  font-size: 25pt;
+  color: red;
+  padding: 4px;
+  margin: 2px;
+}
+
 .lowres .medium-height {
     line-height: 40px;
     height: 40px;
@@ -104,6 +130,10 @@
 
 .lowres .flex-item .time {
   margin-left: 10px;
+}
+
+.lowres .flex-item .comment {
+  margin-left: 4px;
 }
 
 .lowres .flex-item .status {

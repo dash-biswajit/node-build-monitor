@@ -2,11 +2,12 @@
   <div class="flex-container" data-bind="foreach: builds">
     <div data-bind='hover: isMenuVisible' class="flex-item">
       <div data-bind="animateCss: style" class="flex-item-inner nowrap">
-        <span data-bind="text: number" class="number nowrap"></span>
+        <span data-bind="text: number" class="number"></span> 
+        (<span data-bind="text: commitmessage" class="commitcomment"></span>)
         <div class="clear"></div>
         <div class="medium-height nowrap prio-vertical-two">
           <span class="info-block middle">
-            <span data-bind="text: project" class="project"></span>
+            <span data-bind="text: branch" class="project"></span>
             <span data-bind="text: definition, visible: definition" class="definition project-definition-separator"></span>
           </span>
           <span class="reason-block prio-horizontal-two">
@@ -30,15 +31,16 @@
         </div>
         <div class="clear"></div>
         <div class="medium-height nowrap prio-vertical-three">
-          <span data-bind="text: statusText" class="middle status"></span>
+          <span data-bind="text: statusText" class="middle status"></span><span data-bind="visible: isRunning" class="middle fa fa-cog fa-spin" style="font-size: 25pt; padding: 5px"></span>
           <span class="middle warnings prio-horizontal-one">
             <span data-bind="visible: hasWarnings" class="middle fa fa-exclamation-triangle"></span>
             <span data-bind="visible: hasErrors" class="middle fa fa-times-circle"></span>
+            <span class="appstatus failed fa fa-apple" data-bind="style: { color: iosStatus() === 0 ? 'green' : iosStatus() === 1 ?'red':'silver'}"></span>
+            <span class="appstatus success fa fa-android" data-bind="style: { color: androidStatus() === 0 ? 'green' : androidStatus() === 1 ?'red':'silver'}"></span>
           </span>
         </div>
         <div class="clear"></div>
       </div>
-
       <div data-bind="fade: isMenuAvailable() && isMenuVisible(), fadeInDuration: 200, fadeOutDuration: 10" style="display: none" class="overlay">
         <a data-bind="visible: url, attr: { href: url }" target="_blank">
           <i class="fa fa-external-link"></i>
