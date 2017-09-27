@@ -56,8 +56,15 @@ module.exports = function () {
             return "grey";
         },
         simplifyBuild = function (res) {
-            androidStatus = res.matrix[0].result;
-            iosStatus = res.matrix[1].result;
+            for(i=0; i < res.matrix.length; i++){
+
+            }
+            androidStatus = null;
+            iosStatus = null;
+            if(res.matrix[0])
+                androidStatus = res.matrix[0].result;
+            if(res.matrix[1])
+                iosStatus = res.matrix[1].result;
             if(androidStatus === null)
                 androidStatus = -1;
             if(iosStatus === null)
